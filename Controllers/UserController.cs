@@ -2,10 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 
-namespace lizg1.BlogBackEndL.Controllers
+namespace BlogBackEndL.Controllers
 {
-    public class UserController
+    [ApiController]
+    [Route("[controller]")]
+    public class UserController : ControllerBase
     {
         
     }

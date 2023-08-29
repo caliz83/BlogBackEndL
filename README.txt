@@ -85,7 +85,4 @@ PasswordService//file
     Very Hash Password
 
 
-    //under appsettings.json:
-
-//"AllowedHosts": "*",
-//"_comment" : "Server Admin login: AcademyBlogAdmin  Password: "AcademyBlogPassword!"
+Server Admin login: AcademyBlogAdmin  Password: AcademyBlogPassword!
