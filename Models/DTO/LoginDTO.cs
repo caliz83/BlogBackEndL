@@ -7,6 +7,8 @@ namespace lizg1.BlogBackEndL.Controllers.Models.DTO
 {
     public class LoginDTO
     {
-        
+        public string? Username { get; set; }
+
+        public string? Password { get; set; }
     }
 }

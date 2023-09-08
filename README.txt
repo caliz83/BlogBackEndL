@@ -50,14 +50,14 @@ Model//folder
         bool isDeleted
 
 -------------- Items that will be saved to our database DB are above ------------------
-LoginModel
+LoginModelDTO
     string Username
     string password
-Create AccountModel
+Create AccountModelDTO
     int ID = 0
     string Username
     string password
-passwordModel
+passwordModelDTO
     string Salt
     string Hash
 

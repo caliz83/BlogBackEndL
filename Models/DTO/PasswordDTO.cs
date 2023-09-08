@@ -7,6 +7,8 @@ namespace lizg1.BlogBackEndL.Controllers.Models.DTO
 {
     public class PasswordDTO
     {
-        
+        public string? Salt { get; set; }
+
+        public string? Hash { get; set; }
     }
 }
