@@ -117,6 +117,10 @@ namespace lizg1.BlogBackEndL.Services
         public UserModel GetUserByUsername(string? username) {
             return _context.UserInfo.SingleOrDefault(user => user.Username == username);
         }
+
+        public UserModel GetUserByID(int ID){
+            return _context.UserInfo.SingleOrDefault(user => user.Id == ID);
+        }
         public IActionResult Login(LoginDTO user)
         {
             IActionResult Result = Unauthorized();
@@ -139,6 +143,34 @@ namespace lizg1.BlogBackEndL.Services
 
         }
 
-        
+        public bool DeleteUser(string Username) //changed internal to public
+        {
+            // throw new NotImplementedException(); delete this
+
+            //this one is sending over *just* the username
+            //then you have to get the object and then update
+            UserModel foundUser = GetUserByUsername(Username);
+            bool result = false;
+
+            if(foundUser != null){
+                //when it found the user
+                foundUser.Username = Username;
+                _context.Remove<UserModel>(foundUser);
+                result = _context.SaveChanges() != 0; //change bool back to false after deleting the user? i don't really understand this part
+            }
+                return result;
+        }
+
+        public bool UpdateUsername(int id, string Username)
+        {
+            UserModel foundUser = GetUserByID(id);
+            bool result = false;
+            if(foundUser != null){
+                foundUser.Username = Username;
+                _context.Update<UserModel>(foundUser);
+                result = _context.SaveChanges() != 0;
+            }
+            return result;
+        }
     }
 }
