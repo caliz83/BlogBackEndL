@@ -26,32 +26,50 @@ namespace lizg1.BlogBackEndL.Services
 
         public IEnumerable<BlogItemModel> GetAllBlogItems()
         {
-            return ;
+            return _context.BlogInfo;
         }
 
-        public IEnumerable<BlogItemModel> GetItemsByCategory(string category)
+        public IEnumerable<BlogItemModel> GetItemsByCategory(string Category)
         {
-            return ;
+            return _context.BlogInfo.Where(item => item.Category == Category);
         }
 
-        public IEnumerable<BlogItemModel> GetItemsByDate(string date)
+        public IEnumerable<BlogItemModel> GetItemsByDate(string Date)
         {
-            return ;
+            return _context.BlogInfo.Where(item => item.Date == Date);
         }
 
-        public List<BlogItemModel> GetItemsByTag(string tag)
+        public List<BlogItemModel> GetItemsByTag(string Tag)
         {
-            return ;
+            List<BlogItemModel>AllBlogsWithTag = new List<BlogItemModel>(); //"Tag1", "Tag2", "Tag3", "Tag4"...
+            var allItems = GetAllBlogItems().ToList(); //{Tag: "Tag1", Tag: "Tag2", Tag: "Tag3", Tag: "Tag4"}
+            for(int i = 0; i < allItems.Count; i++){
+                BlogItemModel Item = allItems[i];
+                var itemArray = Item.Tag.Split(','); //{"Tag1", "Tag2"}
+                for(int j = 0; j < itemArray.Length; j++){
+                    if(itemArray[j].Contains(Tag)){
+                        AllBlogsWithTag.Add(Item);
+                    }
+                }
+            }
+            return AllBlogsWithTag;
         }
 
-        public bool UpdateBlogItems(BlogItemModel blogUpdate)
+        public bool UpdateBlogItems(BlogItemModel BlogUpdate)
         {
-            return ;
+            _context.Update<BlogItemModel>(BlogUpdate);
+            return _context.SaveChanges() != 0; //save changes but needs to be a bool so put != 0 and it makes it one
         }
 
-        public bool DeleteBlogItem(BlogItemModel blogDelete)
+        public bool DeleteBlogItem(BlogItemModel BlogDelete)
         {
-            return ;
+            _context.Update<BlogItemModel>(BlogDelete);
+            return _context.SaveChanges() != 0;
+        }
+
+        public IEnumerable<BlogItemModel> GetPublishedItems()
+        {
+            return _context.BlogInfo.Where(item => item.IsPublished); //returns an array so not a list
         }
     }
 }
