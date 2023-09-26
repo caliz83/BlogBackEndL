@@ -86,3 +86,9 @@ PasswordService//file
 
 
 Server Admin login: AcademyBlogAdmin  Password: AcademyBlogPassword!
+
+
+update IP address in Azure (or whitelist it):
+sign in to Azure
+find SQL Server (specific server) - click on it
+click on set server firewall in top menu - add current IP address and click Save
