@@ -12,6 +12,7 @@ using System.Security.Cryptography;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.SwaggerUI;
+using BlogBackEndL.Models.DTO;
 
 namespace lizg1.BlogBackEndL.Services
 {
@@ -65,7 +66,7 @@ namespace lizg1.BlogBackEndL.Services
                 _context.Add(newUser);
 
                 //save the changes
-                _context.SaveChanges();
+                result = _context.SaveChanges() != 0;
             } //else
             return result;
             //if they don't exist, we need to add account
@@ -110,9 +111,9 @@ namespace lizg1.BlogBackEndL.Services
             return newHash == StoredHash;
         }
 
-        public IEnumerable<UserModel>GetAllUsers() {
-            return _context.UserInfo;
-        }
+        // public IEnumerable<UserModel>GetAllUsers() {
+        //     return _context.UserInfo;
+        // }
 
         public UserModel GetUserByUsername(string? username) {
             return _context.UserInfo.SingleOrDefault(user => user.Username == username);
@@ -171,6 +172,16 @@ namespace lizg1.BlogBackEndL.Services
                 result = _context.SaveChanges() != 0;
             }
             return result;
+        }
+
+        public UserIdDTO GetUserIdDTOByUsername(string? username)
+        {
+            var UserInfo = new UserIdDTO();
+            var foundUser = _context.UserInfo.SingleOrDefault(user => user.Username == username);
+            UserInfo.UserId = foundUser.Id;
+            UserInfo.PublisherName = foundUser.Username;
+
+            return UserInfo;
         }
     }
 }

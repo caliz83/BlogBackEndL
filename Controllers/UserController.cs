@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BlogBackEndL.Models;
+using BlogBackEndL.Models.DTO;
 using lizg1.BlogBackEndL.Controllers.Models.DTO;
 using lizg1.BlogBackEndL.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -21,6 +22,12 @@ namespace BlogBackEndL.Controllers
             _data = dataFromService;
         }
 
+        //Get user by username
+        [HttpGet("GetUserByUsername/{username}")]
+        public UserIdDTO GetUserIdDTOByUsername(string username) {
+            return _data.GetUserIdDTOByUsername(username); //remember to generate method which will appear in UserService.cs
+        }
+
         //Add a user
         [HttpPost("AddUsers")]
         public bool AddUser(CreateAccountDTO UserToAdd) {
@@ -31,10 +38,10 @@ namespace BlogBackEndL.Controllers
             //else throw an error
 
             //Gety Users
-            [HttpGet("GetAllUsers")]
-            public IEnumerable<UserModel> GetAllUsers() { 
-                return _data.GetAllUsers();
-             }
+            // [HttpGet("GetAllUsers")]
+            // public IEnumerable<UserModel> GetAllUsers() { 
+            //     return _data.GetAllUsers();
+            //  }
         
     //Login
     [HttpPost("Login")] // -  move right under the public IEnumable function, outside its brackets but still inside the ones it's inside

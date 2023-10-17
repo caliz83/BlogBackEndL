@@ -12,11 +12,11 @@ builder.Services.AddScoped<PasswordService>();
 var connectionString = builder.Configuration.GetConnectionString("MyBlogString");
 builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(connectionString));
 
-//CORS policy resolution
-builder.Services.AddCors(option => {
+//CORS policy resolution; call it at the bottom (line 41)
+builder.Services.AddCors(options => {
     options.AddPolicy("BlogPolicy",
     builder => {
-        builder.WithOrigins("http://localhost:5173/") //needs to match url from front end npm run dev url
+        builder.WithOrigins("http://localhost:5173") //needs to match url from front end 'npm run dev' url
         .AllowAnyHeader()
         .AllowAnyMethod();
     });
