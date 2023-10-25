@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BlogBackEndL.Models;
+using BlogBackEndL.Models.DTO;
 using lizg1.BlogBackEndL.Services.Context;
 
 namespace lizg1.BlogBackEndL.Services
@@ -70,6 +71,11 @@ namespace lizg1.BlogBackEndL.Services
         public IEnumerable<BlogItemModel> GetPublishedItems()
         {
             return _context.BlogInfo.Where(item => item.IsPublished); //returns an array so not a list
+        }
+
+        public IEnumerable<BlogItemModel> GetItemsByUserId(int UserId)
+        {
+            return _context.BlogInfo.Where(item => item.UserId == UserId);
         }
     }
 }

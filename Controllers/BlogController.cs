@@ -56,6 +56,12 @@ namespace BlogBackEndL.Controllers
             return _data.GetItemsByDate(Date);
         }
 
+        [HttpGet("GetItemsByUserId/{UserId}")]
+
+        public IEnumerable<BlogItemModel>GetItemsByUserId(int UserId){
+            return _data.GetItemsByUserId(UserId);
+        }
+
         //UpdateBlogItems
         [HttpPost("UpdateBlogItems")]
 

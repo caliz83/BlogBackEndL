@@ -92,3 +92,10 @@ update IP address in Azure (or whitelist it):
 sign in to Azure
 find SQL Server (specific server) - click on it
 click on set server firewall in top menu - add current IP address and click Save
+
+
+command to create a backend: dotnet new web api
+
+to delete tables in SQL Server:
+DROP TABLE BlogInfo, [enter, tab] DROP TABLE UserInfo, [enter, tab] DROP TABLE _EFMigrationsHistory, kill any live session, [missing step], then use "dotnet ef migrations add init"
+& "dotnet ef database update" to reinitialize server to project
