@@ -20,9 +20,13 @@ namespace lizg1.BlogBackEndL.Services
         }
         public bool AddBlogItem(BlogItemModel newBlogItem)
         {
-            _context.Add(newBlogItem);
+            bool result = false;
 
-            return _context.SaveChanges() != 0;
+            _context.Add<BlogItemModel>(newBlogItem);
+            
+            result = _context.SaveChanges() != 0;
+
+            return result;
         }
 
         public IEnumerable<BlogItemModel> GetAllBlogItems()

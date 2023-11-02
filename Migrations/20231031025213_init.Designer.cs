@@ -11,7 +11,7 @@ using lizg1.BlogBackEndL.Services.Context;
 namespace BlogBackEndL.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230830024338_init")]
+    [Migration("20231031025213_init")]
     partial class init
     {
         /// <inheritdoc />
