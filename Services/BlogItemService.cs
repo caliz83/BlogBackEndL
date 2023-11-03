@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BlogBackEndL.Models;
-using BlogBackEndL.Models.DTO;
-using lizg1.BlogBackEndL.Services.Context;
+using BlogBackEndL.Services.Context;
 
-namespace lizg1.BlogBackEndL.Services
+namespace BlogBackEndL.Services
 {
     public class BlogItemService
     {

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using BlogBackEndL.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace lizg1.BlogBackEndL.Services.Context
+namespace BlogBackEndL.Services.Context
 {
     public class DataContext : DbContext
     {

@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BlogBackEndL.Models;
-using lizg1.BlogBackEndL.Controllers.Models.DTO;
-using lizg1.BlogBackEndL.Services;
+using BlogBackEndL.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlogBackEndL.Controllers

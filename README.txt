@@ -97,5 +97,5 @@ click on set server firewall in top menu - add current IP address and click Save
 command to create a backend: dotnet new web api
 
 to delete tables in SQL Server:
-DROP TABLE BlogInfo, [enter, tab] DROP TABLE UserInfo, [enter, tab] DROP TABLE _EFMigrationsHistory, kill any live session, [missing step], then use "dotnet ef migrations add init"
+DROP TABLE BlogInfo, [enter, tab] DROP TABLE UserInfo, [enter, tab] DROP TABLE _EFMigrationsHistory, kill any live session, click on green pay button top of window, then use "dotnet ef migrations add init"
 & "dotnet ef database update" to reinitialize server to project

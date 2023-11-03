@@ -6,15 +6,14 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using BlogBackEndL.Models;
-using lizg1.BlogBackEndL.Controllers.Models.DTO;
-using lizg1.BlogBackEndL.Services.Context;
+using BlogBackEndL.Services.Context;
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using BlogBackEndL.Models.DTO;
 
-namespace lizg1.BlogBackEndL.Services
+namespace BlogBackEndL.Services
 {
     public class UserService : ControllerBase
     {

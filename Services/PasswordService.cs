@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace lizg1.BlogBackEndL.Services
+namespace BlogBackEndL.Services
 {
     public class PasswordService
     {

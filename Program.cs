@@ -1,5 +1,5 @@
-using lizg1.BlogBackEndL.Services;
-using lizg1.BlogBackEndL.Services.Context;
+using BlogBackEndL.Services;
+using BlogBackEndL.Services.Context;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
